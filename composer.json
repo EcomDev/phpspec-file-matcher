@@ -1,0 +1,44 @@
+{
+  "name": "ecomdev/phpspec-file-matcher",
+  "description": "PHPSpec extension that adds file matcher",
+  "keywords": [
+    "phpspec",
+    "extension",
+    "matcher"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+     "phpspec/phpspec": ">=2.4.1 <3.0",
+     "php": ">= 5.4"
+  },
+  "require-dev": {
+    "henrikbjorn/phpspec-code-coverage": "^2.0",
+    "phpspec/nyan-formatters": "^1.0",
+    "satooshi/php-coveralls": "dev-master",
+    "mikey179/vfsStream": "^1.6",
+    "phpspec/phpspec": "^2.4",
+    "coduo/phpspec-data-provider-extension": "^1.0",
+    "squizlabs/php_codesniffer": "*"
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "EcomDev\\PHPSpec\\FileMatcher\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\EcomDev\\PHPSpec\\FileMatcher\\": "spec/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Ivan Chepurnyi",
+      "email": "ivan@ecomdev.org"
+    }
+  ]
+}
