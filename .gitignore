@@ -1,0 +1,11 @@
+### IDE
+.idea
+
+
+### OSX
+.DS_Store
+
+### Composer template
+composer.phar
+vendor/
+bin/
