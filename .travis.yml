@@ -15,7 +15,7 @@ cache:
 before_script:
   - composer self-update
   # Remove composer lock to know about failed dependencies
-  - rm .composer.lock
+  - rm composer.lock
   - composer install
   - mkdir build/
 
