@@ -17,17 +17,29 @@ class Extension implements \PhpSpec\Extension
      */
     public function load(ServiceContainer $container, array $params)
     {
-        $container->define('matchers.file', function () {
-            return $this->createFileMatcher();
-        });
+        $container->define(
+            'ecomdev.matcher.file',
+            function () {
+                return $this->createFileMatcher();
+            },
+            ['matchers']
+        );
 
-        $container->define('matchers.file_content', function () {
-            return $this->createFileContentMatcher();
-        });
+        $container->define(
+            'ecomdev.matcher.file_content',
+            function () {
+                return $this->createFileContentMatcher();
+            },
+            ['matchers']
+        );
 
-        $container->define('matchers.directory', function () {
-            return $this->createDirectoryMatcher();
-        });
+        $container->define(
+            'ecomdev.matcher.directory',
+            function () {
+                return $this->createDirectoryMatcher();
+            },
+            ['matchers']
+        );
     }
 
     /**
