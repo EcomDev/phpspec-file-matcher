@@ -1,6 +1,6 @@
 # PHPSpec File Matcher [![Build Status](https://travis-ci.org/EcomDev/phpspec-file-matcher.svg)](https://travis-ci.org/EcomDev/phpspec-file-matcher) [![Coverage Status](https://coveralls.io/repos/github/EcomDev/phpspec-file-matcher/badge.svg?branch=develop)](https://coveralls.io/github/EcomDev/phpspec-file-matcher?branch=develop)
 
-Allows to match directory/file existance and basic file content match.
+Allows to match directory/file existence and basic file content match.
 
 
 ## Installation
@@ -15,17 +15,17 @@ Allows to match directory/file existance and basic file content match.
 
     ```yaml
     extensions:
-      - EcomDev\PHPSpec\FileMatcher\Extension
+      EcomDev\PHPSpec\FileMatcher\Extension: ~
     ```
     
 ## Matchers
 
-* Directory existance: 
+* Directory existence: 
     * `shouldCreateDirectory($path)`
     * `shouldBeDirectory($path)`
     * `shouldHaveDirectory($path)`
 
-* File existance: 
+* File existence: 
     * `shouldCreateFile($filePath)`
     * `shouldBeFile($filePath)`
     * `shouldHaveFile($filePath)`
