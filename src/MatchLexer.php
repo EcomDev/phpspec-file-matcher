@@ -4,7 +4,6 @@ namespace EcomDev\PHPSpec\FileMatcher;
 
 /**
  * Match lexer for matcher adapter for PHPSpec
- *
  */
 class MatchLexer
 {
@@ -29,10 +28,6 @@ class MatchLexer
      */
     private $forms = [];
 
-    /**
-     * @param string[] $verbs
-     * @param string[]|int[]|bool[] $nouns
-     */
     public function __construct(array $verbs, array $nouns)
     {
         foreach ($verbs as $verb) {

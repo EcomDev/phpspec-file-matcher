@@ -6,41 +6,55 @@ use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\Matcher\Matcher;
 
 /**
- * Check matcher abstraction
+ * Check matcher abstraction class
  */
 class CheckMatcher implements Matcher
 {
     /**
+     * Match lexer
+     *
      * @var MatchLexer
      */
     private $lexer;
 
     /**
+     * Positive check instance
+     *
      * @var CheckInterface
      */
     private $positiveCheck;
 
     /**
+     * Negative check instance
+     *
      * @var CheckInterface
      */
     private $negativeCheck;
 
     /**
+     * Priority
+     *
      * @var int
      */
     private $priority;
 
     /**
+     * Negative error text pattern
+     *
      * @var string
      */
     private $negativeError;
 
     /**
+     * Positive error text pattern
+     *
      * @var string
      */
     private $positiveError;
 
     /**
+     * Constructor
+     *
      * @param MatchLexer $lexer
      * @param CheckInterface $positiveCheck
      * @param CheckInterface $negativeCheck
@@ -86,6 +100,7 @@ class CheckMatcher implements Matcher
      * @param string $name
      * @param mixed $subject
      * @param array $arguments
+     *
      * @return bool
      * @throws FailureException
      */
@@ -104,6 +119,7 @@ class CheckMatcher implements Matcher
      * @param string $name
      * @param mixed $subject
      * @param array $arguments
+     *
      * @return bool
      * @throws FailureException
      */
@@ -117,9 +133,12 @@ class CheckMatcher implements Matcher
     }
 
     /**
+     * Validates a checker
+     *
      * @param CheckInterface $checker
      * @param array $arguments
      * @param string $errorText
+     *
      * @return bool
      * @throws FailureException
      */
