@@ -12,4 +12,4 @@ code_coverage:
   output: build/coverage.xml
 
 extensions:
-  PhpSpec\Extension\CodeCoverageExtension: ~
+  PhpSpecCodeCoverage\CodeCoverageExtension: ~
