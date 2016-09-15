@@ -20,30 +20,43 @@ class ExtensionSpec extends ObjectBehavior
 
     function it_adds_existing_matchers(ServiceContainer $container)
     {
-        $container->define('matchers.file', Argument::that(function ($value) {
-            $check = $value();
-            return ($check instanceof CheckMatcher)
-                && $check->supports('haveFile', null, ['file'])
-                && $check->supports('beFile', null, ['file'])
-                && $check->supports('haveFiles', null, ['file', 'file2'])
-                && $check->supports('createFiles', null, ['file', 'file2'])
-                ;
-        }))->shouldBeCalled();
+        $container->define(
+            'ecomdev.matcher.file',
+            Argument::that(function ($value) {
+                $check = $value();
+                return ($check instanceof CheckMatcher)
+                    && $check->supports('haveFile', null, ['file'])
+                    && $check->supports('beFile', null, ['file'])
+                    && $check->supports('haveFiles', null, ['file', 'file2'])
+                    && $check->supports('createFiles', null, ['file', 'file2'])
+                    ;
+            }),
+            ['matchers']
+        )->shouldBeCalled();
 
-        $container->define('matchers.file_content', Argument::that(function ($value) {
-            $check = $value();
-            return ($check instanceof CheckMatcher)
-                && $check->supports('haveFileContent', null, ['file', 'content']);
-        }))->shouldBeCalled();
+        $container->define(
+            'ecomdev.matcher.file_content',
+            Argument::that(function ($value) {
+                $check = $value();
+                return ($check instanceof CheckMatcher)
+                    && $check->supports('haveFileContent', null, ['file', 'content']);
+            }),
+            ['matchers']
+        )->shouldBeCalled();
 
-        $container->define('matchers.directory', Argument::that(function ($value) {
-            $check = $value();
-            return ($check instanceof CheckMatcher)
-                && $check->supports('haveDirectory', null, ['directory'])
-                && $check->supports('beDirectory', null, ['directory'])
-                && $check->supports('haveDirectories', null, ['directory', 'directory2'])
-                && $check->supports('createDirectories', null, ['directory', 'directory2']);
-        }))->shouldBeCalled();
+        $container->define(
+            'ecomdev.matcher.directory', 
+            Argument::that(function ($value) {
+                $check = $value();
+                return ($check instanceof CheckMatcher)
+                    && $check->supports('haveDirectory', null, ['directory'])
+                    && $check->supports('beDirectory', null, ['directory'])
+                    && $check->supports('haveDirectories', null, ['directory', 'directory2'])
+                    && $check->supports('createDirectories', null, ['directory', 'directory2']);
+                }
+            ),
+            ['matchers']
+        )->shouldBeCalled();
 
         $this->load($container, []);
     }
