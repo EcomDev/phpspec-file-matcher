@@ -2,26 +2,44 @@
 
 namespace EcomDev\PHPSpec\FileMatcher;
 
-use EcomDev\PHPSpec\FileMatcher\Matcher\Directory;
-use EcomDev\PHPSpec\FileMatcher\Matcher\File;
-use EcomDev\PHPSpec\FileMatcher\Matcher\FileContent;
-use PhpSpec\Extension\ExtensionInterface;
 use PhpSpec\ServiceContainer;
 
-class Extension implements ExtensionInterface
+class Extension implements \PhpSpec\Extension
 {
-    public function load(ServiceContainer $container)
+    public function load(ServiceContainer $container, array $params)
     {
-        $container->set('matchers.file', function () {
-            return new File();
+        $container->define('matchers.file', function () {
+            return new CheckMatcher(
+                new MatchLexer(['be', 'have', 'create'], ['file' => 1, 'files']),
+                new FileCheck(true),
+                new FileCheck(false),
+                10,
+                'File "%s" does not exist',
+                'File "%s" exists'
+            );
         });
 
-        $container->set('matchers.file_content', function () {
-            return new FileContent();
+        $container->define('matchers.file_content', function () {
+            return new CheckMatcher(
+                new MatchLexer(['be', 'have'], ['file_content' => 2]),
+                new FileContentCheck(true),
+                new FileContentCheck(false),
+                20,
+                'File "%s" content does not match expected content "%s"',
+                'File "%s" content matches un-expected content "%s"'
+            );
         });
 
-        $container->set('matchers.directory', function () {
-            return new Directory();
+        $container->define('matchers.directory', function () {
+            return new CheckMatcher(
+                new MatchLexer(['be', 'have', 'create'], ['directory' => 1, 'directories']),
+                new DirectoryCheck(true),
+                new DirectoryCheck(false),
+                30,
+                'Directory "%s" does not exist',
+                'Directory "%s" exists'
+            );
         });
     }
+
 }

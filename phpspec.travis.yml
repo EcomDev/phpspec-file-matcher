@@ -12,5 +12,4 @@ code_coverage:
   output: build/coverage.xml
 
 extensions:
-  - PhpSpec\Extension\CodeCoverageExtension
-  - Coduo\PhpSpec\DataProvider\DataProviderExtension
+  PhpSpec\Extension\CodeCoverageExtension: ~
