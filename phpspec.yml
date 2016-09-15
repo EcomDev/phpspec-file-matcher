@@ -8,5 +8,4 @@ suites:
 formatter.name: nyan.cat
 
 extensions:
-  - PhpSpec\NyanFormattersExtension\Extension
-  - Coduo\PhpSpec\DataProvider\DataProviderExtension
+  PhpSpec\NyanFormattersExtension\Extension: ~
