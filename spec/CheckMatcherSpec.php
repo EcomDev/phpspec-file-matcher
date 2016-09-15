@@ -92,6 +92,28 @@ class CheckMatcherSpec extends ObjectBehavior
             ->duringNegativeMatch('beSomething', null, ['argument1', 'argument2']);
     }
 
+    function it_uses_positive_check_model_for_positive_match_that_fails_and_returns_no_arguments()
+    {
+        $this->positiveCheck->__invoke(['argument1', 'argument2'])
+            ->willReturn(false)
+            ->shouldBeCalled();
+
+        $this->shouldThrow(new FailureException('Positive error message %s, %s'))
+            ->duringPositiveMatch('beSomething', null, ['argument1', 'argument2']);
+    }
+
+
+    function it_uses_negative_check_model_for_positive_match_that_fails_and_returns_no_arguments()
+    {
+        $this->negativeCheck->__invoke(['argument1', 'argument2'])
+            ->willReturn(false)
+            ->shouldBeCalled();
+
+        $this->shouldThrow(new FailureException('Negative error message %s, %s'))
+            ->duringNegativeMatch('beSomething', null, ['argument1', 'argument2']);
+    }
+
+
     function it_returns_priority_specified_in_constructor()
     {
         $this->getPriority()->shouldReturn(30);
